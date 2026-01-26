@@ -134,7 +134,6 @@ INSERT INTO Project (project_name, budget, dept_id) VALUES
 ('Payroll System', 150000, 1),
 ('Website Revamp', 300000, 2);
 ```
-<img width="1125" height="270" alt="image" src="https://github.com/user-attachments/assets/3bf0fb00-0831-49ef-98b4-90acd17cf098" />
 
 ---
 
