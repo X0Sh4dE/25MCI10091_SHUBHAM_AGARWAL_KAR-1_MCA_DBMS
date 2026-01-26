@@ -128,7 +128,7 @@ SELECT product,
 SUM(quantity * price) AS total_sales
 FROM customer_orders
 GROUP BY product
-HAVING SUM(quantity * price) > 500000;
+HAVING SUM(quantity * price) > 50000;
 ```
 <img width="348" height="110" alt="Screenshot 2026-01-26 173153" src="https://github.com/user-attachments/assets/3367bbac-4859-4836-b600-86ddc1dc907b">
 
