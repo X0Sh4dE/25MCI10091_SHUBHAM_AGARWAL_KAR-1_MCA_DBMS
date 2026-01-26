@@ -145,6 +145,7 @@ UPDATE Employee
 SET salary = salary + 5000
 WHERE emp_name = 'Neha';
 ```
+
 <img width="681" height="175" alt="image" src="https://github.com/user-attachments/assets/44bc8930-5e9f-4e41-a680-4ae90e679b03" />
 
 ---
