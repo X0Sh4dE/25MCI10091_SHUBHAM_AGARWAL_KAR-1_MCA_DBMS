@@ -112,7 +112,7 @@ INSERT INTO Department (dept_name, loc_name) VALUES
 ('Marketing', 'Pune'),
 ('Manufacturing', 'Manipur');
 ```
-<img src = "https://github.com/user-attachments/assets/6f35cfdf-f2c9-4cab-a312-695f9e6cbd93" >
+<img src = "https://github.com/user-attachments/assets/6f35cfdf-f2c9-4cab-a312-695f9e6cbd93">
 
 
 ### **Insert into Employee**
@@ -125,7 +125,7 @@ INSERT INTO Employee (emp_name, email, salary, dept_id) VALUES
 ('Nehal', 'nehal@org.com', 65000, 3),
 ('Rohit', 'rohit@org.com', 70000, 3);
 ```
-<img width="762" height="238" alt="employee_table" src="https://github.com/user-attachments/assets/43eaa1fe-116a-4fbb-93b7-32eb4dbf77d7" />">
+<img width="762" height="238" alt="employee_table" src="https://github.com/user-attachments/assets/43eaa1fe-116a-4fbb-93b7-32eb4dbf77d7">">
 
 ### **Insert into Project**
 ```sql
@@ -165,9 +165,9 @@ WHERE emp_name = 'Amit';
 ```sql
 CREATE USER reporting_user WITH PASSWORD 'report@123';
 ```
-<img width="623" height="376" alt="User_role" src="https://github.com/user-attachments/assets/7be294e5-e3d3-4807-8f78-26b548cddac9" />
+<img width="623" height="376" alt="User_role" src="https://github.com/user-attachments/assets/7be294e5-e3d3-4807-8f78-26b548cddac9">
 
-<img src = "https://github.com/user-attachments/assets/2a905181-b126-4962-b8d2-09f828c3c849" >
+<img src = "https://github.com/user-attachments/assets/2a905181-b126-4962-b8d2-09f828c3c849">
 
 ### **Grant SELECT Privileges**
 ```sql
