@@ -111,10 +111,7 @@ INSERT INTO Department (dept_name, loc_name) VALUES
 ('Finance', 'Mumbai'),
 ('Marketing', 'Pune'),
 ('Manufacturing', 'Manipur');
-
-<img src = "https://github.com/user-attachments/assets/a370de41-8ec0-489b-9f05-6daead017337">
-
-
+```
 
 ### **Insert into Employee**
 ```sql
@@ -126,7 +123,6 @@ INSERT INTO Employee (emp_name, email, salary, dept_id) VALUES
 ('Nehal', 'nehal@org.com', 65000, 3),
 ('Rohit', 'rohit@org.com', 70000, 3);
 ```
-<img width="1064" height="273" alt="image" src="https://github.com/user-attachments/assets/b1d45099-8e57-41cf-84dd-41f46aae56bd" />
 
 ### **Insert into Project**
 ```sql
@@ -145,8 +141,6 @@ SET salary = salary + 5000
 WHERE emp_name = 'Neha';
 ```
 
-<img width="681" height="175" alt="image" src="https://github.com/user-attachments/assets/44bc8930-5e9f-4e41-a680-4ae90e679b03" />
-
 ---
 
 # 🗑️ **Step 4: DELETE Operations**  
@@ -157,8 +151,6 @@ WHERE emp_name = 'Neha';
 DELETE FROM Employee
 WHERE emp_name = 'Amit';
 ```
-<img width="1125" height="236" alt="image" src="https://github.com/user-attachments/assets/5f1dfd6d-a0d4-4397-83ce-2ef5fec265dc" />
-<img width="1061" height="239" alt="image" src="https://github.com/user-attachments/assets/2053e1d5-f20f-4b3a-bd82-0d57519f2a28" />
 
 ---
 
@@ -168,8 +160,6 @@ WHERE emp_name = 'Amit';
 ```sql
 CREATE USER reporting_user WITH PASSWORD 'report@123';
 ```
-<img width="834" height="502" alt="image" src="https://github.com/user-attachments/assets/cbac5c37-f9b3-42e7-bcfa-e16e31f0098b" />
-<img width="883" height="59" alt="image" src="https://github.com/user-attachments/assets/f486ad9e-05a9-4967-b3c9-7218ee585537" />
 
 ### **Grant SELECT Privileges**
 ```sql
@@ -192,13 +182,11 @@ revoke select on Department from CEO;
 ALTER TABLE Employee 
 ADD COLUMN join_date DATE; 
 ```
-<img width="1125" height="205" alt="image" src="https://github.com/user-attachments/assets/f6187e70-e176-4308-a0c0-d9219ad9ce5d" />
 
 ### **Drop Table**
 ```sql
 drop table Project;
 ```
-<img width="541" height="227" alt="image" src="https://github.com/user-attachments/assets/70c9e752-6f25-4932-a467-1ce1ab9d1d2b" />
 
 ---
 ## 📥📤 I/O Analysis (Input / Output)
