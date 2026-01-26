@@ -125,6 +125,7 @@ INSERT INTO Employee (emp_name, email, salary, dept_id) VALUES
 ('Nehal', 'nehal@org.com', 65000, 3),
 ('Rohit', 'rohit@org.com', 70000, 3);
 ```
+<img width="762" height="238" alt="employee_table" src="https://github.com/user-attachments/assets/43eaa1fe-116a-4fbb-93b7-32eb4dbf77d7" />">
 
 ### **Insert into Project**
 ```sql
@@ -133,6 +134,7 @@ INSERT INTO Project (project_name, budget, dept_id) VALUES
 ('Website Revamp', 300000, 2);
 ```
 
+<img src = "https://github.com/user-attachments/assets/7f1b9942-d655-4ff9-b0ff-3ab3b4a4a6e7)">
 ---
 
 # ✏️ **Step 3: UPDATE Operation**  
@@ -153,6 +155,7 @@ WHERE emp_name = 'Neha';
 DELETE FROM Employee
 WHERE emp_name = 'Amit';
 ```
+<img width="864" height="204" alt="Deleted_Record" src="https://github.com/user-attachments/assets/7d06e220-b255-4e4f-ae5f-f261cd14ea06" />
 
 ---
 
@@ -162,6 +165,9 @@ WHERE emp_name = 'Amit';
 ```sql
 CREATE USER reporting_user WITH PASSWORD 'report@123';
 ```
+<img width="623" height="376" alt="User_role" src="https://github.com/user-attachments/assets/7be294e5-e3d3-4807-8f78-26b548cddac9" />
+
+<img src = "https://github.com/user-attachments/assets/2a905181-b126-4962-b8d2-09f828c3c849" >
 
 ### **Grant SELECT Privileges**
 ```sql
