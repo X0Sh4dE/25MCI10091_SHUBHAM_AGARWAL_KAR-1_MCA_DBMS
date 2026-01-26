@@ -112,7 +112,8 @@ INSERT INTO Department (dept_name, loc_name) VALUES
 ('Marketing', 'Pune'),
 ('Manufacturing', 'Manipur');
 ```
-<img scr = "OUTPUT/department_table.jpg">
+<img src = "https://github.com/user-attachments/assets/6f35cfdf-f2c9-4cab-a312-695f9e6cbd93" >
+
 
 ### **Insert into Employee**
 ```sql
