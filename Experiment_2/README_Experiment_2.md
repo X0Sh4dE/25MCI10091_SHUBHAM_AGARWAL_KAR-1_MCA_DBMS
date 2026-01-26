@@ -144,7 +144,8 @@ WHERE order_date >= '2024-01-01'
   AND order_date <= '2024-01-31'
 GROUP BY product;
 ```
-< img src= "https://github.com/user-attachments/assets/7998f91b-179d-46b7-a410-b95ce99dad19" >
+<img src= "https://github.com/user-attachments/assets/40c9f760-0a93-48ad-a917-6d6aa05f7ef9">
+
 
 ---
 
