@@ -111,9 +111,8 @@ INSERT INTO Department (dept_name, loc_name) VALUES
 ('Finance', 'Mumbai'),
 ('Marketing', 'Pune'),
 ('Manufacturing', 'Manipur');
-
-<img src = "https://github.com/user-attachments/assets/a370de41-8ec0-489b-9f05-6daead017337">
-
+```
+<img src = "https://github.com/user-attachments/assets/6f35cfdf-f2c9-4cab-a312-695f9e6cbd93">
 
 
 ### **Insert into Employee**
@@ -126,7 +125,7 @@ INSERT INTO Employee (emp_name, email, salary, dept_id) VALUES
 ('Nehal', 'nehal@org.com', 65000, 3),
 ('Rohit', 'rohit@org.com', 70000, 3);
 ```
-<img width="1064" height="273" alt="image" src="https://github.com/user-attachments/assets/b1d45099-8e57-41cf-84dd-41f46aae56bd" />
+<img width="762" height="238" alt="employee_table" src="https://github.com/user-attachments/assets/43eaa1fe-116a-4fbb-93b7-32eb4dbf77d7">">
 
 ### **Insert into Project**
 ```sql
@@ -134,6 +133,8 @@ INSERT INTO Project (project_name, budget, dept_id) VALUES
 ('Payroll System', 150000, 1),
 ('Website Revamp', 300000, 2);
 ```
+
+<img src ="https://github.com/user-attachments/assets/7f1b9942-d655-4ff9-b0ff-3ab3b4a4a6e7">
 
 ---
 
@@ -145,8 +146,6 @@ SET salary = salary + 5000
 WHERE emp_name = 'Neha';
 ```
 
-<img width="681" height="175" alt="image" src="https://github.com/user-attachments/assets/44bc8930-5e9f-4e41-a680-4ae90e679b03" />
-
 ---
 
 # 🗑️ **Step 4: DELETE Operations**  
@@ -157,8 +156,7 @@ WHERE emp_name = 'Neha';
 DELETE FROM Employee
 WHERE emp_name = 'Amit';
 ```
-<img width="1125" height="236" alt="image" src="https://github.com/user-attachments/assets/5f1dfd6d-a0d4-4397-83ce-2ef5fec265dc" />
-<img width="1061" height="239" alt="image" src="https://github.com/user-attachments/assets/2053e1d5-f20f-4b3a-bd82-0d57519f2a28" />
+<img width="864" height="204" alt="Deleted_Record" src="https://github.com/user-attachments/assets/7d06e220-b255-4e4f-ae5f-f261cd14ea06">
 
 ---
 
@@ -168,8 +166,9 @@ WHERE emp_name = 'Amit';
 ```sql
 CREATE USER reporting_user WITH PASSWORD 'report@123';
 ```
-<img width="834" height="502" alt="image" src="https://github.com/user-attachments/assets/cbac5c37-f9b3-42e7-bcfa-e16e31f0098b" />
-<img width="883" height="59" alt="image" src="https://github.com/user-attachments/assets/f486ad9e-05a9-4967-b3c9-7218ee585537" />
+<img width="623" height="376" alt="User_role" src="https://github.com/user-attachments/assets/7be294e5-e3d3-4807-8f78-26b548cddac9">
+
+<img src = "https://github.com/user-attachments/assets/2a905181-b126-4962-b8d2-09f828c3c849">
 
 ### **Grant SELECT Privileges**
 ```sql
@@ -178,10 +177,12 @@ GRANT SELECT ON Employee TO reporting_user;
 GRANT SELECT ON Project TO reporting_user;
 ```
 
+
 ### **Revoke Privilege**
 ```sql
-revoke select on Department from CEO;
+revoke select on Department from reporting_user;
 ```
+<img width="497" height="83" alt="Revoke_Privilage_from_Role" src="https://github.com/user-attachments/assets/35fa296f-57b3-4841-93b7-81f21f3ba1bf">
 
 ---
 
@@ -192,13 +193,16 @@ revoke select on Department from CEO;
 ALTER TABLE Employee 
 ADD COLUMN join_date DATE; 
 ```
-<img width="1125" height="205" alt="image" src="https://github.com/user-attachments/assets/f6187e70-e176-4308-a0c0-d9219ad9ce5d" />
+<img width="867" height="240" alt="Column_Added_Join_Date" src="https://github.com/user-attachments/assets/41b76c3c-e97d-4fc9-a979-dee69c85f9d9">
+
+
 
 ### **Drop Table**
 ```sql
 drop table Project;
+
 ```
-<img width="541" height="227" alt="image" src="https://github.com/user-attachments/assets/70c9e752-6f25-4932-a467-1ce1ab9d1d2b" />
+<img width="451" height="147" alt="Project_Table_dropped" src="https://github.com/user-attachments/assets/5ee2da3c-1d59-4856-b0e9-b5677a85f572">
 
 ---
 ## 📥📤 I/O Analysis (Input / Output)
