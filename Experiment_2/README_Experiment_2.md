@@ -118,7 +118,7 @@ GROUP BY product;
 SELECT product,
        SUM(price * quantity) AS total_sales
 FROM orders
-WHERE price > 30000
+WHERE price > 20000
 GROUP BY product;
 ```
 <img width="351" height="173" alt="Screenshot 2026-01-26 173025" src="https://github.com/user-attachments/assets/ef2b777d-2cac-4615-9d74-f51310f8f767">
