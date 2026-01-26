@@ -134,7 +134,8 @@ INSERT INTO Project (project_name, budget, dept_id) VALUES
 ('Website Revamp', 300000, 2);
 ```
 
-<img src = "https://github.com/user-attachments/assets/7f1b9942-d655-4ff9-b0ff-3ab3b4a4a6e7)">
+<img src ="https://github.com/user-attachments/assets/7f1b9942-d655-4ff9-b0ff-3ab3b4a4a6e7">
+
 ---
 
 # ✏️ **Step 3: UPDATE Operation**  
@@ -155,7 +156,7 @@ WHERE emp_name = 'Neha';
 DELETE FROM Employee
 WHERE emp_name = 'Amit';
 ```
-<img width="864" height="204" alt="Deleted_Record" src="https://github.com/user-attachments/assets/7d06e220-b255-4e4f-ae5f-f261cd14ea06" />
+<img width="864" height="204" alt="Deleted_Record" src="https://github.com/user-attachments/assets/7d06e220-b255-4e4f-ae5f-f261cd14ea06">
 
 ---
 
@@ -176,10 +177,12 @@ GRANT SELECT ON Employee TO reporting_user;
 GRANT SELECT ON Project TO reporting_user;
 ```
 
+
 ### **Revoke Privilege**
 ```sql
-revoke select on Department from CEO;
+revoke select on Department from reporting_user;
 ```
+<img width="497" height="83" alt="Revoke_Privilage_from_Role" src="https://github.com/user-attachments/assets/35fa296f-57b3-4841-93b7-81f21f3ba1bf">
 
 ---
 
@@ -190,11 +193,16 @@ revoke select on Department from CEO;
 ALTER TABLE Employee 
 ADD COLUMN join_date DATE; 
 ```
+<img width="867" height="240" alt="Column_Added_Join_Date" src="https://github.com/user-attachments/assets/41b76c3c-e97d-4fc9-a979-dee69c85f9d9">
+
+
 
 ### **Drop Table**
 ```sql
 drop table Project;
+
 ```
+<img width="451" height="147" alt="Project_Table_dropped" src="https://github.com/user-attachments/assets/5ee2da3c-1d59-4856-b0e9-b5677a85f572">
 
 ---
 ## 📥📤 I/O Analysis (Input / Output)
