@@ -254,5 +254,3 @@ ORDER BY priority, violation_score DESC;
 - `README_Experiment_3.md` (this file)
 - `Experiment_3.sql` (complete code)
 - Screenshots (step1.png to step5.png)
-
-```
