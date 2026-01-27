@@ -218,6 +218,7 @@ ORDER BY priority, violation_score DESC;
 
 ```
 <img src = "Output/Step_5.png">
+
 ---
 
 ## I/O Analysis
