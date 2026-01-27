@@ -60,6 +60,7 @@ INSERT INTO schema_analysis (schema_name, violation_score) VALUES
 ('business_profile',2);
 
 ```
+<img src = "Output/Schema_Analysis_Table.jpg">
 
 ---
 
@@ -83,6 +84,7 @@ ORDER BY violation_score;
 
 ```
 
+<img src = "Output/Step_1.png">
 
 ---
 
@@ -94,6 +96,9 @@ ORDER BY violation_score;
 ALTER TABLE schema_analysis
 ADD COLUMN voilation_category varchar(50);
 ```
+<img src = "Output/Step_2_1.png">
+
+---
 
 ```sql
 UPDATE schema_analysis SET voilation_category = (
@@ -107,6 +112,8 @@ UPDATE schema_analysis SET voilation_category = (
 
 SELECT * FROM schema_analysis;
 ```
+
+<img src = "Output/Step_2_2.png">
 
 ---
 
@@ -139,6 +146,7 @@ BEGIN
     END LOOP;
 END $$;
 ```
+<img src = "Output/Step_3.png">
 
 ---
 
@@ -167,7 +175,11 @@ INSERT INTO student_grades (student_name, total_marks, subject) VALUES
 ('Sneha Roy', 298, 'Commerce'); 
 
 ```
+<img src = "Output/Student_Grades_Table.png">
 
+--- 
+
+### Grading Students Based Upon the Total_Marks using CASE statements :
 ```sql
 SELECT 
     student_name,
@@ -183,6 +195,7 @@ SELECT
 FROM student_grades
 ORDER BY total_marks DESC;
 ```
+<img src = "Output/Step_4.png">
 
 ---
 
@@ -204,7 +217,7 @@ FROM schema_analysis
 ORDER BY priority, violation_score DESC;
 
 ```
-
+<img src = "Output/Step_5.png">
 ---
 
 ## I/O Analysis
