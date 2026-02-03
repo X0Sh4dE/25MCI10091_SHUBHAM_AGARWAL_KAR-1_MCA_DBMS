@@ -51,175 +51,153 @@ CREATE TABLE employee (
     salary INT,
     joining_year INT
 );
--- Insert data with varying violation scores
-INSERT INTO schema_analysis (schema_name, violation_score) VALUES
-('user_profiles', 0),
-('product_catalog', 1),
-('order_processing', 5),
-('payment_gateway', 2),
-('inventory_management', 3),
-('new_users',4),
-('business_profile',2);
+-- Insert data for employee table
+INSERT INTO employee (emp_name, department, designation, salary, joining_year) VALUES
+('Amit Sharma', 'IT', 'Developer', 30000, 2022),
+('Neha Verma', 'HR', 'HR Executive', 35000, 2021),
+('Nishant Sharma', 'HR', 'HR Executive', 35000, 2021),
+('Nisha Sharma', 'HR', 'HR Executive', 35000, 2021),
+('Neeraj Rajput', 'IT', 'Developer', 30000, 2022),
+('Neeru Chawan', 'Sales', 'Sales Executive', 37000, 2023),
+('Rahul Mehta', 'Finance', 'Accountant', 28000, 2023),
+('Sneha Kapoor', 'IT', 'Senior Developer', 50000, 2019),
+('Rohit Jain', 'Sales', 'Sales Executive', 32000, 2022),
+('Pooja Singh', 'IT', 'Tester', 27000, 2024);
+ [file:2]
 
-```
-<img src = "Output/Schema_Analysis_Table.jpg">
-
----
-
-### Step 1: Classifying Data Using CASE Expression
-
-**Task:** Retrieve schema names and classify violation levels.
-
-```sql
-SELECT 
-    schema_id,
-    schema_name,
-    violation_score,
-    CASE 
-        WHEN violation_score = 0 THEN 'No Violation'
-        WHEN violation_score BETWEEN 1 AND 2 THEN 'Minor Violation'
-        WHEN violation_score BETWEEN 3 AND 4 THEN 'Moderate Violation'
-        ELSE 'Critical Violation'
-    END AS violation_category
-FROM schema_analysis
-ORDER BY violation_score;
-
-```
-
-<img src = "Output/Step_1.png">
+![image](1.png) [file:2]
 
 ---
 
-### Step 2: Applying CASE Logic in Data Updates
+### Example 1: FOR Loop -- Simple Iteration
 
-**Task:** Add and update approval_status column.
-
-```sql
-ALTER TABLE schema_analysis
-ADD COLUMN voilation_category varchar(50);
-```
-<img src = "Output/Step_2_1.png">
-
----
-
-```sql
-UPDATE schema_analysis SET voilation_category = (
- CASE 
-        WHEN violation_score = 0 THEN 'No Violation'
-        WHEN violation_score BETWEEN 1 AND 2 THEN 'Minor Violation'
-        WHEN violation_score BETWEEN 3 AND 4 THEN 'Moderate Violation'
-        ELSE 'Critical Violation'
-    END
-)
-
-SELECT * FROM schema_analysis;
-```
-
-<img src = "Output/Step_2_2.png">
-
----
-
-### Step 3: Implementing IF-ELSE Logic Using PL/pgSQL
-
-**Task:** Direct DO block for violation checking.
-
-```sql
+sql
 DO $$
-DECLARE 
-    rec RECORD;
-    violation_count INT;
-    schema_status VARCHAR(35);
+DECLARE
+    i INT;
 BEGIN
-    FOR rec IN SELECT schema_id, schema_name, violation_score FROM schema_analysis LOOP
-        violation_count := rec.violation_score;
-        
-        IF violation_count = 0 THEN
-            schema_status := 'Approved';
-        ELSIF violation_count BETWEEN 1 AND 2 THEN
-            schema_status := 'Need Review';
-        ELSIF violation_count BETWEEN 3 AND 4 THEN
-            schema_status := 'Review (Urgent)';
-        ELSE
-            schema_status := 'Rejected';
-        END IF;
-        
-        RAISE NOTICE 'Schema: % , Status: %', 
-                     rec.schema_name, schema_status;
+    FOR i IN 1..5 LOOP
+        RAISE NOTICE 'Processing batch number: %', i;
     END LOOP;
 END $$;
-```
-<img src = "Output/Step_3.png">
+ [file:2]
+
+![image](2.png) [file:2]
 
 ---
 
-### Step 4: Real-World Classification - Grading System
+### Example 2: FOR Loop -- Query Based
 
-### student_grades Table Creation :
-```sql
+sql
+DO $$
+DECLARE
+    emp RECORD;
+BEGIN
+    FOR emp IN SELECT * FROM employee LOOP
+        RAISE NOTICE
+            'ID: %, Name: %, Dept: %, Salary: %',
+            emp.emp_id, emp.emp_name, emp.department, emp.salary;
+    END LOOP;
+END $$;
+ [file:2]
 
-CREATE TABLE student_grades (
-    student_id SERIAL PRIMARY KEY,
-    student_name VARCHAR(100) NOT NULL,
-    total_marks INT NOT NULL CHECK (total_marks >= 0 AND total_marks <= 500),
-    subject VARCHAR(50)
-);
-
---record insertion with total_marks range(0-500) -> 5 Subjects
-
-INSERT INTO student_grades (student_name, total_marks, subject) VALUES
-('Rahul Sharma', 465, 'Science Stream'),      
-('Priya Singh', 412, 'Science Stream'),
-('Amit Kumar', 345, 'Science Stream'),        
-('Neha Gupta', 285, 'Science Stream'),
-('Vikash Yadav', 165, 'Science Stream'),      
-('Anjali Verma', 448, 'Commerce'),
-('Rohit Patel', 378, 'Commerce'),             
-('Sneha Roy', 298, 'Commerce'); 
-
-```
-<img src = "Output/Student_Grades_Table.png">
-
---- 
-
-### Grading Students Based Upon the Total_Marks using CASE statements :
-```sql
-SELECT 
-    student_name,
-    total_marks,
-    CASE 
-        WHEN total_marks >= 400 THEN 'A+'
-        WHEN total_marks >= 350 THEN 'A'
-        WHEN total_marks >= 300 THEN 'B' 
-        WHEN total_marks >= 250 THEN 'C'
-        WHEN total_marks >= 200 THEN 'D'
-        ELSE 'F'
-    END AS grades
-FROM student_grades
-ORDER BY total_marks DESC;
-```
-<img src = "Output/Step_4.png">
+![image](3.png) [file:2]
 
 ---
 
-### Step 5: CASE for Custom Sorting (Priority)
+### Example 3: WHILE Loop -- Conditional Iteration
 
-```sql
-SELECT * FROM schema_analysis;
-SELECT 
-    schema_name,
-    violation_score,
-	voilation_category,
-    CASE 
-        WHEN violation_score > 4 THEN 1
-        WHEN violation_score BETWEEN 3 and 4 THEN 2
-        WHEN violation_score BETWEEN 1 and 2 THEN 3
-		ELSE 4
-    END AS priority
-FROM schema_analysis
-ORDER BY priority, violation_score DESC;
+sql
+DO $$
+DECLARE
+    i INT := 0;
+BEGIN
+    WHILE i <= 7 LOOP
+        RAISE NOTICE '%', i;
+        i := i + 1;
+    END LOOP;
+END $$;
+ [file:2]
 
-```
-<img src = "Output/Step_5.png">
+![image](4.png) [file:2]
+
+---
+
+### Example 4: LOOP with EXIT WHEN (Version 1)
+
+sql
+DO $$
+DECLARE
+    counter INT := 1;
+BEGIN
+    LOOP
+        RAISE NOTICE 'Loop execution count: %', counter;
+        counter := counter + 1;
+        EXIT WHEN counter > 5;
+    END LOOP;
+END $$;
+ [file:2]
+
+![image](5.png) [file:2]
+
+---
+
+### Example 4: LOOP with EXIT WHEN (Version 2)
+
+sql
+DO $$
+DECLARE
+    counter INT := 1;
+BEGIN
+    LOOP
+        RAISE NOTICE 'Loop execution count: %', counter;
+        counter := counter + 1;
+        EXIT WHEN counter > 5;
+    END LOOP;
+END $$;
+ [file:2]
+
+![image](4.png) [file:2]
+
+---
+
+### Example 5: Salary Increment using FOR Loop
+
+sql
+DO $$
+DECLARE
+    emp RECORD;
+BEGIN
+    FOR emp IN SELECT emp_id FROM employee LOOP
+        UPDATE employee
+        SET salary = salary + 3000
+        WHERE emp_id = emp.emp_id;
+    END LOOP;
+END $$;
+ [file:2]
+
+![image](6.png) [file:2]
+
+---
+
+### Example 6: LOOP + IF Condition
+
+sql
+DO $$
+DECLARE
+    emp RECORD;
+BEGIN
+    FOR emp IN SELECT emp_name, salary FROM employee LOOP
+        IF emp.salary >= 40000 THEN
+            RAISE NOTICE '% is a Senior Employee', emp.emp_name;
+        ELSE
+            RAISE NOTICE '% is a Junior Employee', emp.emp_name;
+        END IF;
+    END LOOP;
+END $$;
+``` [file:2]
+
+![image](7.png) [file:2]
 
 ---
 
@@ -227,17 +205,17 @@ ORDER BY priority, violation_score DESC;
 
 ### Input
 
-- schema_analysis table with violation scores(0-5)
-- Student grades data (0-500 marks)
+- Employee Data
 
 
 ### Output
 
-- Violation classification categories
-- Approval status updates
-- Procedural validation messages
-- Student grading system
-- Priority-based schema sorting
+- Employee records were processed repeatedly using FOR loops to display and update data.   
+- Query-based FOR loop classified and handled each employee record individually. 
+- WHILE loop executed until the given condition became false, showing conditional iteration. 
+- LOOP with EXIT demonstrated controlled termination of repeated execution. 
+- Salary values were updated iteratively, simulating payroll processing.
+- Conditional checks inside loops produced procedural validation messages during execution.
 
 ---
 
