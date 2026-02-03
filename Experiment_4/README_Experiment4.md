@@ -51,7 +51,10 @@ CREATE TABLE employee (
     salary INT,
     joining_year INT
 );
--- Insert data for employee table
+```
+### Insert Data For Employee Table
+
+```sql
 INSERT INTO employee (emp_name, department, designation, salary, joining_year) VALUES
 ('Amit Sharma', 'IT', 'Developer', 30000, 2022),
 ('Neha Verma', 'HR', 'HR Executive', 35000, 2021),
@@ -63,14 +66,15 @@ INSERT INTO employee (emp_name, department, designation, salary, joining_year) V
 ('Sneha Kapoor', 'IT', 'Senior Developer', 50000, 2019),
 ('Rohit Jain', 'Sales', 'Sales Executive', 32000, 2022),
 ('Pooja Singh', 'IT', 'Tester', 27000, 2024);
- [file:2]
+```
 
-![image](1.png) [file:2]
+<img width="707" height="276" alt="employee_table_creation" src="https://github.com/user-attachments/assets/0c03e553-4514-4cc0-a5ee-a78e348164e7">
 
 ---
 
 ### Example 1: FOR Loop -- Simple Iteration
 
+```sql
 sql
 DO $$
 DECLARE
@@ -80,15 +84,14 @@ BEGIN
         RAISE NOTICE 'Processing batch number: %', i;
     END LOOP;
 END $$;
- [file:2]
-
-![image](2.png) [file:2]
+```
+<img width="403" height="162" alt="Ex_1" src="https://github.com/user-attachments/assets/278201f2-5b13-49b7-9c5b-fb0f8f833532">
 
 ---
 
 ### Example 2: FOR Loop -- Query Based
 
-sql
+```sql
 DO $$
 DECLARE
     emp RECORD;
@@ -99,15 +102,15 @@ BEGIN
             emp.emp_id, emp.emp_name, emp.department, emp.salary;
     END LOOP;
 END $$;
- [file:2]
+```
 
-![image](3.png) [file:2]
+<img width="648" height="262" alt="Ex_2" src="https://github.com/user-attachments/assets/b8b95c61-53d1-4ad4-b744-abec962018bd">
 
 ---
 
 ### Example 3: WHILE Loop -- Conditional Iteration
 
-sql
+```sql
 DO $$
 DECLARE
     i INT := 0;
@@ -117,15 +120,14 @@ BEGIN
         i := i + 1;
     END LOOP;
 END $$;
- [file:2]
-
-![image](4.png) [file:2]
+```
+<img width="493" height="216" alt="Ex_3" src="https://github.com/user-attachments/assets/ac389b86-97e2-4091-986f-f3eeeac19339">
 
 ---
 
 ### Example 4: LOOP with EXIT WHEN (Version 1)
 
-sql
+```sql
 DO $$
 DECLARE
     counter INT := 1;
@@ -136,34 +138,14 @@ BEGIN
         EXIT WHEN counter > 5;
     END LOOP;
 END $$;
- [file:2]
-
-![image](5.png) [file:2]
-
----
-
-### Example 4: LOOP with EXIT WHEN (Version 2)
-
-sql
-DO $$
-DECLARE
-    counter INT := 1;
-BEGIN
-    LOOP
-        RAISE NOTICE 'Loop execution count: %', counter;
-        counter := counter + 1;
-        EXIT WHEN counter > 5;
-    END LOOP;
-END $$;
- [file:2]
-
-![image](4.png) [file:2]
+```
+<img width="492" height="162" alt="Ex_4" src="https://github.com/user-attachments/assets/77a11b1a-b157-4bb4-a445-bd18d88e08f4">
 
 ---
 
 ### Example 5: Salary Increment using FOR Loop
 
-sql
+```sql
 DO $$
 DECLARE
     emp RECORD;
@@ -174,15 +156,14 @@ BEGIN
         WHERE emp_id = emp.emp_id;
     END LOOP;
 END $$;
- [file:2]
-
-![image](6.png) [file:2]
+```
+<img width="702" height="276" alt="Ex_5" src="https://github.com/user-attachments/assets/118d2a76-83aa-4c4a-9a36-d8a4463944da">
 
 ---
 
 ### Example 6: LOOP + IF Condition
 
-sql
+```sql
 DO $$
 DECLARE
     emp RECORD;
@@ -195,9 +176,9 @@ BEGIN
         END IF;
     END LOOP;
 END $$;
-``` [file:2]
+```
+<img width="552" height="263" alt="Ex_6" src="https://github.com/user-attachments/assets/86e87bff-5e7f-4799-9085-af80e9c7317b">
 
-![image](7.png) [file:2]
 
 ---
 
