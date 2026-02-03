@@ -253,6 +253,6 @@ ORDER BY priority, violation_score DESC;
 
 ## Repository Contents
 
-- `README_Experiment_3.md` (this file)
-- `Experiment_3.sql` (complete code)
-- Screenshots (step1.png to step5.png)
+- `README_Experiment_4.md` (this file)
+- `Experiment_4.sql` (complete code)
+- Screenshots (Ex_1.png to Ex_6.png)
