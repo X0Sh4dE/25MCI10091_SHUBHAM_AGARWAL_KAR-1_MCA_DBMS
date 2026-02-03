@@ -125,7 +125,7 @@ END $$;
 
 ---
 
-### Example 4: LOOP with EXIT WHEN (Version 1)
+### Example 4: LOOP with EXIT WHEN
 
 ```sql
 DO $$
