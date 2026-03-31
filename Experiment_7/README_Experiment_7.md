@@ -1,23 +1,41 @@
 # Experiment No. 7
 
-**Student Name: Shubham Agarwal UID: 25MCI10091**
+**Student Name: Shubham Agarwal** 
+
+**UID: 25MCI10091**
+
 **Branch: MCA (AI & ML) Section/Group: 25MAM-1/A**
-**Semester: 2nd Date of Performance:31/03/2026 Subject Name: Technical Training Lab Subject Code: 25CAH-653**
+
+**Semester: 2nd**
+
+**Date of Performance:31/03/2026**
+
+**Subject Name: Technical Training Lab**
+
+**Subject Code: 25CAH-653**
+
 ---
+
 **Aim of the Session:**
 To implement and understand different types of JOIN operations in PostgreSQL for combining data from multiple tables.
+
 ---
+
 **Software Requirements:**
 - PostgreSQL Database Server
 - pgAdmin 4
 - Windows Operating System
+
 ---
+
 **Objective of the Session:**
 - To apply different types of JOIN operations on four related tables-Students, Courses, Enrollments, and Departments.
 - To understand the relationships between these tables using primary and foreign keys.
 - To combine data from multiple tables to retrieve meaningful and structured information.
 - To enhance query writing skills for real-world database analysis and reporting.
+
 ---
+
 **Practical Experiment Steps:**
 
 **Table Creation & Record Insertion:**
@@ -27,19 +45,18 @@ CREATE TABLE DEPARTMENTS (
 dept_id VARCHAR(10) PRIMARY KEY, dept_name VARCHAR(50)
 );
 ```
-
 ```sql
 CREATE TABLE STUDENTS (
 student_id VARCHAR(15) PRIMARY KEY, student_name VARCHAR(50), dept_id VARCHAR(10),
 FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
 );
 ```
+
 ```sql
 CREATE TABLE Courses (
 course_id VARCHAR(15) PRIMARY KEY, course_name VARCHAR(50)
 );
 ```
-
 ```sql
 CREATE TABLE Enrollments (
 enroll_id VARCHAR(20) PRIMARY KEY,student_id VARCHAR(15),course_id VARCHAR(15),
@@ -48,6 +65,7 @@ FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
 ```
 ---
+
 **DEPARTMENTS TABLE**
 
 ```sql
@@ -90,16 +108,25 @@ INSERT INTO Enrollments VALUES ('ENR009', 'STU106F', 'PHY110');
 ```sql
 SELECT * FROM DEPARTMENTS;
 ```
+<img src = "\Outputs\Departments.png">
+
 ```sql
 SELECT * FROM STUDENTS;
 ```
+<img src = "\Outputs\Students.png">
+
 ```sql
 SELECT * FROM ENROLLMENTS;
 ```
+<img src = "\Outputs\Enrollments.png">
+
 ```sql
 SELECT * FROM COURSES;
 ```
+<img src = "\Outputs\Courses.png">
+
 ---
+
 **Step 1: Write queries to list students with their enrolled courses (INNER JOIN).**
 
 ```sql
@@ -107,6 +134,8 @@ SELECT * FROM Students S INNER JOIN Enrollments E
 ON S.student_id = E.student_id INNER JOIN Courses C
 ON E.course_id = C.course_id;
 ```
+<img src = "\Outputs\STEP_1.png">
+
 ---
 
 **STEP 2: Find students not enrolled in any course (LEFT JOIN).**
@@ -116,14 +145,20 @@ FROM STUDENTS s
 LEFT JOIN ENROLLMENTS e ON s.student_id = e.student_id
 WHERE e.student_id IS NULL;
 ```
+<img src = "\Outputs\STEP_2.png">
+
 ---
+
 **STEP 3:** **Display all courses with or without enrolled students (RIGHT JOIN).**
+
 ```sql
 SELECT c.course_id, c.course_name, s.student_name
 FROM STUDENTS s
 RIGHT JOIN ENROLLMENTS e ON s.student_id = e.student_id
 RIGHT JOIN COURSES c ON e.course_id = c.course_id;
 ```
+<img src = "\Outputs\STEP_3.png">
+
 ---
 
 **STEP 4: Show students with department info using SELF JOIN or MULTIPLE JOINS.**
@@ -133,6 +168,8 @@ SELECT s.student_id, s.student_name, d.dept_name
 FROM STUDENTS s
 INNER JOIN DEPARTMENTS d ON s.dept_id = d.dept_id;
 ```
+<img src = "\Outputs\STEP_4.png">
+
 ---
 
 **STEP 5: Display all possible student-course combinations (CROSS JOIN).**
@@ -141,18 +178,26 @@ INNER JOIN DEPARTMENTS d ON s.dept_id = d.dept_id;
 SELECT s.student_name, c.course_name
 FROM STUDENTS sCROSS JOIN COURSES c;
 ```
+<img src = "\Outputs\STEP_5.png">
+
 ---
+
 **I/O Analysis**
 
 **Input:**
 
 The input consists of data stored in four relational tables:
-#### **Departments Table**
-#### **Students Table**
-#### **Courses Table**
-#### **Enrollments Table**
+**Departments Table**
+<img src = "\Outputs\Departments.png">
+ **Students Table**
+<img src = "\Outputs\Students.png">
+ **Courses Table**
+<img src = "\Outputs\Courses.png">
+ **Enrollments Table**
+<img src = "\Outputs\Enrollments.png">
 
 ---
+
 **Output:**
 
 - Step 1 - Inner Join Operation:  
@@ -167,6 +212,7 @@ The input consists of data stored in four relational tables:
    Generated all possible combinations of students and courses, demonstrating the concept of Cartesian product.
 
 ---
+
 **Learning Outcomes**
 
 - **Understanding of JOIN Operations:**
