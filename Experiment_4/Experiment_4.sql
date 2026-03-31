@@ -19,8 +19,8 @@ INSERT INTO employee (emp_name, department, designation, salary, joining_year) V
 ('Rohit Jain', 'Sales', 'Sales Executive', 32000, 2022),
 ('Pooja Singh', 'IT', 'Tester', 27000, 2024);
 
-
 SELECT * FROM employee;
+
 --Example 1: FOR Loop – Simple Iteration 
 DO $$
 DECLARE

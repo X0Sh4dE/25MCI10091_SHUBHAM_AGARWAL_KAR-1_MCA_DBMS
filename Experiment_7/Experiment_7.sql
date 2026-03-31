@@ -1,0 +1,96 @@
+CREATE TABLE DEPARTMENTS (
+    dept_id VARCHAR(10) PRIMARY KEY, dept_name VARCHAR(50)
+);
+
+CREATE TABLE STUDENTS (
+    student_id VARCHAR(15) PRIMARY KEY, name VARCHAR(50), dept_id VARCHAR(10),
+    FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
+);
+
+CREATE TABLE Courses (
+    course_id VARCHAR(15) PRIMARY KEY, course_name VARCHAR(50)
+);
+
+CREATE TABLE Enrollments (
+    enroll_id VARCHAR(20) PRIMARY KEY,student_id VARCHAR(15),course_id VARCHAR(15),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+ALTER TABLE Students RENAME COLUMN name to student_name;
+
+--RECORD INSERTION FOR TABLES
+
+--DEPARTMENTS TABLE
+INSERT INTO Departments VALUES ('D01', 'Computer Science');
+INSERT INTO Departments VALUES ('D02', 'Mechanical');
+INSERT INTO Departments VALUES ('D03', 'Electrical');
+
+--STUDENTS TABLE
+INSERT INTO Students VALUES ('STU101A', 'Shubham Agarwal', 'D01');
+INSERT INTO Students VALUES ('STU102B', 'Rahul Sharma', 'D02');
+INSERT INTO Students VALUES ('STU103C', 'Amit Verma', 'D01');
+INSERT INTO Students VALUES ('STU104D', 'Neha Kapoor', 'D03');
+INSERT INTO Students VALUES ('STU105E', 'Priya Singh', 'D02');
+INSERT INTO Students VALUES ('STU106F', 'Karan Mehta', 'D01');
+
+--COURSES TABLE
+INSERT INTO Courses VALUES ('CSE201', 'Database Management System');
+INSERT INTO Courses VALUES ('CSE202', 'Operating System');
+INSERT INTO Courses VALUES ('MTH101', 'Engineering Mathematics');
+INSERT INTO Courses VALUES ('PHY110', 'Applied Physics');
+
+
+--ENROLLMENTS TABLE
+INSERT INTO Enrollments VALUES ('ENR001', 'STU101A', 'CSE201');
+INSERT INTO Enrollments VALUES ('ENR002', 'STU101A', 'CSE202');
+INSERT INTO Enrollments VALUES ('ENR003', 'STU101A', 'MTH101');  
+INSERT INTO Enrollments VALUES ('ENR004', 'STU102B', 'MTH101');
+INSERT INTO Enrollments VALUES ('ENR005', 'STU103C', 'CSE201');
+INSERT INTO Enrollments VALUES ('ENR006', 'STU103C', 'PHY110');
+INSERT INTO Enrollments VALUES ('ENR007', 'STU106F', 'CSE201');
+INSERT INTO Enrollments VALUES ('ENR008', 'STU106F', 'CSE202');
+INSERT INTO Enrollments VALUES ('ENR009', 'STU106F', 'PHY110');  
+
+
+--VIEWING RECORDS OF DIFFERENT TABLES
+SELECT * FROM STUDENTS;
+SELECT * FROM DEPARTMENTS;
+SELECT * FROM ENROLLMENTS;
+SELECT * FROM COURSES;
+
+
+--QUERING TABLES ACCORDING TO THE NEEDS
+
+--STEP 1: VIEWING STUDENT DETAILS WHEO HAVE ENROLLED IN COURSES
+SELECT * FROM Students S INNER JOIN Enrollments E
+ON S.student_id = E.student_id INNER JOIN Courses C
+ON E.course_id = C.course_id;
+
+
+--STEP 2: VIEWING STUDENT DETAILS WHO HAVE NOT ENROLLED IN ANY COURSE
+SELECT s.student_id, s.student_name
+FROM STUDENTS s
+LEFT JOIN ENROLLMENTS e ON s.student_id = e.student_id
+WHERE e.student_id IS NULL;
+
+
+--STEP 3: DISPLAY ALL COURSES WITH OR WITHOUT STUDENTS
+SELECT c.course_id, c.course_name, s.student_name
+FROM STUDENTS s
+RIGHT JOIN ENROLLMENTS e ON s.student_id = e.student_id
+RIGHT JOIN COURSES c ON e.course_id = c.course_id;
+
+
+--STEP 4: DISPLAY ALL THE STUDENT AND THEIR DEPARTMENT (MULTIPLE JOINS)
+SELECT s.student_id, s.student_name, d.dept_name
+FROM STUDENTS s
+INNER JOIN DEPARTMENTS d ON s.dept_id = d.dept_id;
+
+
+--STEP 5: VIEWING STUDENTS ENROLLED IN COURSES (ALL COMBINATIONS)
+SELECT s.student_name, c.course_name
+FROM STUDENTS s
+CROSS JOIN COURSES c;
+
+
