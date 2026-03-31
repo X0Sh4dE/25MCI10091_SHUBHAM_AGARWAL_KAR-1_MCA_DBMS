@@ -187,13 +187,21 @@ FROM STUDENTS sCROSS JOIN COURSES c;
 **Input:**
 
 The input consists of data stored in four relational tables:
+
 **Departments Table**
+
 <img src = "\Outputs\Departments.png">
+
  **Students Table**
+
 <img src = "\Outputs\Students.png">
+
  **Courses Table**
+
 <img src = "\Outputs\Courses.png">
+
  **Enrollments Table**
+
 <img src = "\Outputs\Enrollments.png">
 
 ---
