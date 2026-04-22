@@ -110,7 +110,7 @@ $$ LANGUAGE PLPGSQL;
 ```
 **Output:**
 
-![alt text](Step_1.png)
+<img src = "./Output/Step_1.png">
 ---
 
 ### Step 2: Calling the Stored Procedure
