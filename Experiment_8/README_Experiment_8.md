@@ -133,7 +133,7 @@ $$
 
 **Output:**
 
-![alt text](Step_2.png)
+<img src = "./Output/Step_2.png">
 
 ---
 
